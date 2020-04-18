@@ -1,8 +1,6 @@
 const Todo = require('../models/todo_model');
 
-const todosController = {};
-
-todosController.index = async (req, res) => {
+exports.index = async (req, res) => {
     try {
         const todo = await Todo.find();     
         res.json(todo);
@@ -11,7 +9,7 @@ todosController.index = async (req, res) => {
     }
 }
 
-todosController.show = async (req, res) => {
+exports.show = async (req, res) => {
     try {
         const todo = await Todo.findById(req.params.id);      
         res.json(todo);
@@ -21,7 +19,7 @@ todosController.show = async (req, res) => {
 
 }
 
-todosController.create = async (req, res) => {
+exports.create = async (req, res) => {
     try {
         todo = new Todo({
             title: req.body.title,
@@ -35,7 +33,7 @@ todosController.create = async (req, res) => {
     }
 }
 
-todosController.update = async (req, res) => {
+exports.update = async (req, res) => {
     const requestData = {
         title: req.body.title,
         content: req.body.content, 
@@ -56,7 +54,7 @@ todosController.update = async (req, res) => {
     }
 }
 
-todosController.destroy = async (req, res) => {
+exports.destroy = async (req, res) => {
     try {
         todo = await Todo.findByIdAndDelete(req.params.id);
         res.json({"message": "Deleted"});
@@ -65,4 +63,3 @@ todosController.destroy = async (req, res) => {
     }
 }
 
-module.exports = todosController;
