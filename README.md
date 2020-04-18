@@ -1,6 +1,6 @@
-# README
+# README 
 
-This is a node Restful API for a simple card app.
+This is a node Restful API for a simple card/note sharing app.
 
 Stack:
 
