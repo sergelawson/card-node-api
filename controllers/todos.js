@@ -5,7 +5,7 @@ exports.index = async (req, res) => {
         const todo = await Todo.find();     
         res.json(todo);
     } catch (error) {
-        res.json(error);
+        res.status(400).json(error);
     }
 }
 
@@ -29,7 +29,7 @@ exports.create = async (req, res) => {
         data = await todo.save();
         res.json(data);
     } catch (error) {
-        res.json(error);
+        res.status(400).json(error);
     }
 }
 
